@@ -1,26 +1,34 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
+import { BigGridBox, SmallGridBox } from "./GridBox";
+import { HomeDescText, HomeText } from "./HomeText";
 
-export const HomeText = ({ children }) => {
+export const ShoeSection = ({
+  heading,
+  description,
+  img,
+  gender,
+  handleSection,
+}) => {
   return (
-    <Text
-      fontWeight={600}
-      letterSpacing={2}
-      fontFamily={"'Anton', sans-serif"}
-      fontSize={["35px", "40px", "55px", "60px", "60px"]}
+    <Box
+      m={"60px auto 60px"}
+      w={["94%", "94%", "94%", "94%", "80%"]}
+      textAlign={"center"}
     >
-      {children}
-    </Text>
-  );
-};
+      <HomeText>{heading}</HomeText>
+      <HomeDescText>{description}</HomeDescText>
 
-export const HomeDescText = ({ children }) => {
-  return (
-    <Text
-      mb={["30px"]}
-      px={["10px", "15px", "30px", "50px", "100px"]}
-      fontSize={["14px", "15px", "16px", "16px", "16px"]}
-    >
-      {children}
-    </Text>
+      <Grid
+        onClick={() => {
+          handleSection(gender);
+        }}
+        gap={["10px", "10px", "10px", "10px", "20px"]}
+        templateColumns={"repeat(2, 1fr)"}
+      >
+        <BigGridBox source={img[0]} />
+        <SmallGridBox source={img[1]} />
+        <SmallGridBox source={img[2]} />
+      </Grid>
+    </Box>
   );
 };
