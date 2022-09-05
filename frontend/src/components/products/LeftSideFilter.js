@@ -27,7 +27,7 @@ export const LeftSideFilter = () => {
     maxPrice: Infinity,
   });
   const [manageFilter, setManageFilter] = useState(init);
-  const gender = useSelector((state) => state.pathReducer.path);
+  const gender = useSelector((state) => state.pathReducer?.path);
   const dispatch = useDispatch();
   const toast = useToast();
 
