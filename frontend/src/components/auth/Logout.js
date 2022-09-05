@@ -11,7 +11,7 @@ import {
 import { FiLogOut } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart2, BsFillCaretDownFill } from "react-icons/bs";
-import { RiLuggageCartLine, RiCoupon3Line } from "react-icons/ri";
+import { RiLuggageCartLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutFromAccount } from "../../redux/features/auth/actions";
 import { useNavigate } from "react-router-dom";
