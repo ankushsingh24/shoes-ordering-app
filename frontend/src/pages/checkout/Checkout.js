@@ -8,19 +8,16 @@ import { CheckoutOrderSummary } from "../../components/checkout/CheckoutOrderSum
 import { CheckoutForm } from "../../components/checkout/CheckoutForm";
 import { Box, useToast } from "@chakra-ui/react";
 import { setToast } from "../../utils/extraFunctions";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { initPayment } from "../payment/razorpay";
+import { shallowEqual, useSelector } from "react-redux";
 import { useState } from "react";
-import axios from "axios";
-// import { updateCartDetails } from "../../redux/features/cart/actions";
-import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
-  const { orderSummary, cartProducts } = useSelector(
+  const { orderSummary } = useSelector(
     (state) => state.cartReducer,
     shallowEqual
+    // useSelector is a function that takes the current state as an argument and returns whatever data you want from it
+    //Shallow equality checking (or reference equality) simply checks that two different variables reference the same object
   );
-  const token = useSelector((state) => state.authReducer.token);
 
   const initState = {
     firstName: "",
@@ -37,8 +34,6 @@ export const Checkout = () => {
 
   const [form, setForm] = useState(initState);
   const toast = useToast();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleInputChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -73,23 +68,7 @@ export const Checkout = () => {
 
     if (!handleFormValidation(form)) return;
 
-    //To get order id
-    const { data } = await axios.post("/api/payment/order", {
-      amount: orderSummary.total,
-    });
-
-    //Passing order id to razorpay function
-
-    initPayment(
-      form,
-      data,
-      orderSummary,
-      cartProducts,
-      token,
-      toast,
-      dispatch,
-      navigate
-    );
+    setToast(toast, "Order Placed Successfully !!!", "success");
   };
 
   return (
