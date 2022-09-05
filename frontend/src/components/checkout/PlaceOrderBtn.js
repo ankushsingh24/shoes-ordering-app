@@ -8,8 +8,8 @@ export const PlaceOrderBtn = ({ onClick }) => {
         as={"button"}
         type={"submit"}
         h={"60px"}
-        bg={"#edf2f7"}
-        color={"black"}
+        bg={"blue"}
+        color={"white"}
         border={`1px solid #cecdce`}
         borderRadius={"50px"}
         w={"100%"}
