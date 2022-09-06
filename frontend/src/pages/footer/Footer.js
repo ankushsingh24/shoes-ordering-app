@@ -9,7 +9,7 @@ export const Footer = () => {
     <Box h={"300px"} bg={"black"} color={"white"} mt={"40px"}>
       <Center h={"80px"}>
         <Text className="typeWritertheme">
-          Made with <Icon as={FcLike} /> by Ankush
+          Made with <Icon as={FcLike} /> by Team
         </Text>
       </Center>
 
