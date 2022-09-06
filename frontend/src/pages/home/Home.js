@@ -33,11 +33,11 @@ export const Home = () => {
     <Error />
   ) : (
     <>
-      {shoeData.products.map((data, index) => (
+      {shoeData?.map((data, index) => (
         <ShoeSection handleSection={handleSection} key={index} {...data} />
       ))}
 
-      {clothData.products.map((data, index) => (
+      {clothData?.map((data, index) => (
         <ClothSection handleSection={handleSection} key={index} {...data} />
       ))}
     </>
