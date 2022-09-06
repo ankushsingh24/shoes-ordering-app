@@ -7,9 +7,9 @@ import { Provider as ReduxProvider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "./redux/store/store";
 import { theme } from "./theme";
-// import axios from "axios";
+import axios from "axios";
 
-// axios.defaults.baseURL = "https://mohit-nike-clone.herokuapp.com/";
+axios.defaults.baseURL = "https://mohit-nike-clone.herokuapp.com/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
