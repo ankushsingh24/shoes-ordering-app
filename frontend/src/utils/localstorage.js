@@ -12,3 +12,5 @@ export const getItem = (key) => {
 export const removeItem = (key) => {
   return localStorage.removeItem(key);
 };
+
+// localstorage in browser
